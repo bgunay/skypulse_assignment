@@ -92,7 +92,7 @@ Verified locally:
 
 ## Terraform
 
-Terraform files live in [`terraform/main.tf`](/Users/burhan/Desktop/workspace/rounds_assignment/terraform/main.tf) and [`terraform/variables.tf`](/Users/burhan/Desktop/workspace/rounds_assignment/terraform/variables.tf).
+Terraform files live in `terraform/main.tf` and `terraform/variables.tf`.
 
 Example workflow:
 
