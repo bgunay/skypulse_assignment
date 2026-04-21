@@ -17,6 +17,14 @@ function getNumber(value: string | undefined, fallback: number): number {
   return Number.isFinite(parsed) ? parsed : fallback;
 }
 
+function getBoolean(value: string | undefined, fallback: boolean): boolean {
+  if (!value) {
+    return fallback;
+  }
+
+  return value.toLowerCase() === "true";
+}
+
 export const env = {
   nodeEnv: getNodeEnv(process.env.NODE_ENV),
   port: getNumber(process.env.PORT, 3000),
@@ -29,4 +37,6 @@ export const env = {
     "https://air-quality-api.open-meteo.com/v1/air-quality",
   httpTimeoutMs: getNumber(process.env.HTTP_TIMEOUT_MS, 3000),
   analyticsTimeoutMs: getNumber(process.env.ANALYTICS_TIMEOUT_MS, 2000),
+  logToFile: getBoolean(process.env.LOG_TO_FILE, false),
+  logFilePath: process.env.LOG_FILE_PATH || "logs/app.log",
 };

@@ -69,6 +69,12 @@ npm install
 npm run dev
 ```
 
+Optional local file logging:
+
+```bash
+LOG_TO_FILE=true LOG_FILE_PATH=logs/app.log npm run dev
+```
+
 Production-style local run:
 
 ```bash
