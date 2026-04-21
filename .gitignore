@@ -5,6 +5,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
 
 # Diagnostic reports
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -16,22 +18,41 @@ pids
 *.pid.lock
 
 # Coverage
+lib-cov
 coverage
 *.lcov
 .nyc_output
 
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Build output
+# Build / caches
 dist/
 build/Release
 *.tsbuildinfo
-
-# Package manager caches
 .npm
 .pnpm-store
+.eslintcache
+.stylelintcache
+.node_repl_history
+.cache
+.parcel-cache
+.next
+out
+.nuxt
+.temp
+.svelte-kit/
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+.firebase/
+
+# Dependencies
+node_modules/
+jspm_packages/
+web_modules/
+bower_components
+.pnp.*
+
+# Yarn
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -40,7 +61,7 @@ build/Release
 !.yarn/versions
 .yarn-integrity
 
-# Local env
+# Env
 .env
 .env.*
 !.env.example
@@ -60,8 +81,8 @@ terraform/override.tf.json
 terraform/*_override.tf
 terraform/*_override.tf.json
 
-# Misc tooling
-.eslintcache
-.stylelintcache
-.node_repl_history
+# Misc
+.grunt
+.lock-wscript
 *.tgz
+.tern-port
