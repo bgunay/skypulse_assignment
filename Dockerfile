@@ -7,9 +7,12 @@ RUN npm ci
 
 COPY tsconfig.json ./
 COPY src ./src
-COPY skypulse.db ./skypulse.db
 
 RUN npm run build
+
+RUN mkdir -p /data
+
+VOLUME ["/data"]
 
 EXPOSE 3000
 

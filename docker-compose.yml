@@ -3,9 +3,11 @@ services:
     build: .
     ports:
       - "3000:3000"
+    volumes:
+      - ./skypulse.db:/data/skypulse.db
     environment:
       PORT: 3000
       NODE_ENV: production
-      DB_PATH: skypulse.db
+      DB_PATH: /data/skypulse.db
       ANALYTICS_API_KEY: dummy
       ANALYTICS_ENDPOINT: https://httpbin.org/post

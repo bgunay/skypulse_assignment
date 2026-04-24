@@ -27,6 +27,20 @@ describe("activity.controller", () => {
     expect(res.body).toEqual({ error: "lat and lon must be numbers" });
   });
 
+  test("returns 400 when lat is out of range", async () => {
+    const res = await request(app).get("/api/v1/activity-score?lat=91&lon=45");
+
+    expect(res.status).toBe(400);
+    expect(res.body).toEqual({ error: "lat must be between -90 and 90" });
+  });
+
+  test("returns 400 when lon is out of range", async () => {
+    const res = await request(app).get("/api/v1/activity-score?lat=45&lon=-181");
+
+    expect(res.status).toBe(400);
+    expect(res.body).toEqual({ error: "lon must be between -180 and 180" });
+  });
+
   test("returns service result for valid request", async () => {
     jest.spyOn(activityService, "getActivityScore").mockResolvedValue({
       score: 88,

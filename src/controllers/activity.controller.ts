@@ -19,6 +19,14 @@ router.get("/activity-score", async (req, res, next) => {
       throw new HttpError(400, "lat and lon must be numbers");
     }
 
+    if (latNum < -90 || latNum > 90) {
+      throw new HttpError(400, "lat must be between -90 and 90");
+    }
+
+    if (lonNum < -180 || lonNum > 180) {
+      throw new HttpError(400, "lon must be between -180 and 180");
+    }
+
     const result = await getActivityScore(latNum, lonNum, user_id as string);
     res.json(result);
   } catch (err) {

@@ -89,6 +89,7 @@ docker compose up --build
 ```
 
 This exposes the service on port `3000` as required by the assignment.
+The SQLite file is mounted from the host at `./skypulse.db` to `/data/skypulse.db`, so data is not baked into the Docker image and persists across container rebuilds.
 
 Verified locally:
 
@@ -139,6 +140,7 @@ Expected deployment flow:
 - Ensured an index exists on `user_preferences(location_id)` because the assignment explicitly notes 2M+ rows in production.
 - Added unit, controller, and integration tests.
 - Added Docker packaging and Terraform for the DigitalOcean droplet workflow in the prompt.
+- Mounted the SQLite database into the container instead of copying it into the image, so Dockerized data stays persistent and separate from the application image.
 
 ## Engineering Tradeoffs
 
